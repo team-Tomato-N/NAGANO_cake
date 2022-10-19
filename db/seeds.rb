@@ -12,6 +12,7 @@ Member.create!(
   first_furigana:'タロウ',
   email:'test@webcamp.jp',
   postal_code:'1111111',
-  address :'テスト県テスト市1-11',
-  password:'11111'
+  address:'テスト県テスト市1-11',
+  phone_number:'1234567890',
+  password:'111111'
 )
