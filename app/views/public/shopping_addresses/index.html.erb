@@ -27,8 +27,8 @@
               <td><%= shopping_address.address %></td>
               <td><%= shopping_address.name %></td>
               <td>
-                   <%= link_to "編集する" , shopping_addresses_path(shopping_address), class: 'btn btn-success' %>
-                   <%= link_to "削除する" , class: 'btn btn-danger', method: :delete %>
+                   <%= link_to "編集する" , edit_shopping_address_path(shopping_address), class: 'btn btn-success' %>
+                   <%= link_to "削除する" , shopping_address_path(shopping_address), class: 'btn btn-danger', method: :delete, data: {confirm: "削除しますか？"} %>
               </td>
             </tr>
             <% end %>
