@@ -1,4 +1,5 @@
 class Public::ShoppingAddressesController < ApplicationController
+
   def index
       @shopping_addresses = ShoppingAddress.all
       @shopping_address = ShoppingAddress.new
