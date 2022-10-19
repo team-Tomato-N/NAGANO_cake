@@ -1,2 +1,13 @@
-<h1>Public::ShoppingAddresses#edit</h1>
-<p>Find me in app/views/public/shopping_addresses/edit.html.erb</p>
+<div class = "container">
+  <div class = "row">
+    <h2>配送先編集</h2>
+  </div>
+  <div class = "row">
+      <%= form_with model: @shopping_address do |f| %>
+        <h4>郵便番号(ハイフンなし)</h4><%= f.text_field :postal_code,  size: 30 %>
+        <h4>住所</h4><%= f.text_field :address,  size: 60 %>
+        <h4>宛名</h4><%= f.text_field :name,  size: 30 %>
+        <%= f.submit '変更内容を保存' , class: 'btn btn-success'%>
+      <% end %>
+  </div>
+</div>

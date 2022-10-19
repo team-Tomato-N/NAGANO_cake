@@ -17,8 +17,14 @@ class Public::ShoppingAddressesController < ApplicationController
   end
 
   def edit
+    @shopping_address = ShoppingAddress.find(params[:id])
   end
 
+  def update
+    shopping_address = ShoppingAddress.find(params[:id])
+    shopping_address.update(shopping_address_params)
+    redirect_to shopping_addresses_path
+  end
 
   private
   def shopping_address_params
