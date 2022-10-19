@@ -5,8 +5,8 @@ class Public::ShoppingAddressesController < ApplicationController
   end
 
   def create
-    shopping_address = ShoppingAddress.find(params[:shopping_address_id])
-    #shopping_address.member_id = Member.find(2).id
+    shopping_address = ShoppingAddress.new(shopping_address_params)
+    shopping_address.member_id = Member.find(2).id
     shopping_address.save
     redirect_to shopping_addresses_path
   end

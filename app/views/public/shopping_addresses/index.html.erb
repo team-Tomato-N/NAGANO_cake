@@ -1,6 +1,8 @@
 <div class = "container">
   <div class = "row">
     <h2>配送先登録/一覧</h2>
+  </div>
+  <div class = "row">
       <%= form_with model: @shopping_address do |f| %>
         <div class="form-group">郵便番号(ハイフンなし)</div><%= f.text_field :postal_code,  size: 30 %>
         <div class="form-group">住所</div><%= f.text_field :address,  size: 60 %>
@@ -25,8 +27,8 @@
               <td><%= shopping_address.address %></td>
               <td><%= shopping_address.name %></td>
               <td>
-                   <%= link_to "編集する" , edit_shopping_address_path(shopping_address), class: 'btn btn-success' %>
-                   <%= link_to "削除する" ,class: 'btn btn-danger', method: :delete %>
+                   <%= link_to "編集する" , shopping_addresses_path(shopping_address), class: 'btn btn-success' %>
+                   <%= link_to "削除する" , class: 'btn btn-danger', method: :delete %>
               </td>
             </tr>
             <% end %>
