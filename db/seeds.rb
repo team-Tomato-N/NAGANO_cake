@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+ shopping_address
 
 Member.create!(
     id:2,
@@ -18,3 +19,16 @@ Member.create!(
     phone_number:'0987654321',
     password:'222222'
   )
+
+Member.create!(
+  last_name:'試作',
+  first_name:'太郎',
+  last_furigana:'シサク',
+  first_furigana:'タロウ',
+  email:'test@webcamp.jp',
+  postal_code:'1111111',
+  address:'テスト県テスト市1-11',
+  phone_number:'1234567890',
+  password:'111111'
+)
+ develop
