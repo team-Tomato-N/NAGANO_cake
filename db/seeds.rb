@@ -32,6 +32,7 @@ Member.create!(
   password:'111111'
 )
 
+
 ShoppingAddress.create!(
   member_id:2,
   postal_code:'333333',
@@ -72,3 +73,4 @@ CurtItem.create!(
   item_id:2,
   quantity:2
 )
+
