@@ -1,3 +1,5 @@
+<head><%= stylesheet_link_tag "application", :media => "all" %></head>
+
 <div class="container">
   <div class="row">
     <div class="col-md-3">
@@ -6,41 +8,43 @@
       <%#= render 'admin/genres/genre_sidebar', genres: @genres%>
       </div>
     </div>
-    <div class="col-md-9">
-          <div class="top-box">
-            <div class="jumbotron mt-4 ">
+    <div class="col-md-9 ">
+          <div class="top-box mt-4 ">
+            <div class="jumbotron  text-center" style="background-color:#FFE4E1;" >
               <div class="container">
-                <span>Welcome!!</span>
-                <p class="top-text">
-                ようこそ、ながのCAKEへ！<br>
+                <h4>ようこそ、ながのCAKEへ！</h4>
+                <p class="top-text ">
                 このサイトは、ケーキ販売のECサイトになります。<br>
                 会員でない方も商品の閲覧はできますが、<br>
                 購入には会員登録が必要になります。
                 </p>
-                <div class="top-image"></div>
               </div>
             </div>
-            <div class="items">
-                <h2>~Items~</h2>
-            </div>
-            <!--
-            <div class="pickup-item">
-            <%# @random.each do |item| %>
-              <div class="pickup-4item">
-      		        <%# if item.is_active == true %>
-                    <%#= link_to item_path(item) do %>
-                      <%#= attachment_image_tag item, :image, fallback: 'no_image2.jpg', size:'180x130' %><br>
+            <div class="jumbotron" style="background-color:#FFE4E1;" >
+              <div class="container">
+                <div class="items">
+                    <h4>~Items~</h4>
+                </div>
+                <!--
+                <div class="pickup-item">
+                <%# @random.each do |item| %>
+                  <div class="pickup-4item">
+          		        <%# if item.is_active == true %>
+                        <%#= link_to item_path(item) do %>
+                          <%#= attachment_image_tag item, :image, fallback: 'no_image2.jpg', size:'180x130' %><br>
+                        <%# end %>
+                        <p><%#= item.name %></p>
+                        <p>¥<%#= (item.not_tax_price*1.1).floor.to_s(:delimited)%>(税込)</p>
                     <%# end %>
-                    <p><%#= item.name %></p>
-                    <p>¥<%#= (item.not_tax_price*1.1).floor.to_s(:delimited)%>(税込)</p>
+                  </div>
                 <%# end %>
               </div>
-            <%# end %>
+                <div class="row">
+                  <div class="check-all"><%#= link_to "Check ALL>>", items_path %></div>
+                </div>
+      -->
           </div>
-            <div class="row">
-              <div class="check-all"><%#= link_to "Check ALL>>", items_path %></div>
-            </div>
-  -->
+        </div>
       </div>
     </div>
   </div>
