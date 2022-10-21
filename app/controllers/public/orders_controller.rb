@@ -6,25 +6,75 @@ class Public::OrdersController < ApplicationController
     @current_member = Member.find(2)
   end
 
+  def create
+    # @order = Order.new(order_params)
+    # @current_member = Member.find(2)
+    # @order.member_id = @current_member.id
+    # if @order.save!
+    #   @cart_items = @current_member.cart_items
+    #   @cart_items.each do |cart_item|
+    #     order_detail = OrderDetail.new(order_id: @order.id)
+    #     order_detail.price = cart_item.item.price
+    #     order_detail.amount = cart_item.amount
+    #     order_detail.item_id = cart_item.item_id
+    #     order_detail.save!
+    #   end
+    #   @cart_items.destroy_all
+    #   redirect_to orders_complete_path
+    # else
+    #   render "new"
+    # end
+  end
+
+  def confirm
+    @current_member = Member.find(2)
+    @curt_items = @current_member.curt_items
+    @order = Order.new(order_params)
+    # @curt_items = current_member.curt_items
+    # @order.member_id = current_memmber.id
+    @order.pay = params[:order][:pay]
+    # @total_price = @current_member.cart_items.cart_items_total_price(@cart_items)
+    @order.postage = 800
+
+    if params[:order][:address_option] == "0"
+      @order.postal_code = @current_member.postal_code
+      @order.address = @current_member.address
+      @order.name = @current_member.last_name + " " + @current_member.first_name
+      render 'confirm'
+    elsif params[:order][:address_option] == "1"
+      @shopping_address = ShoppingAddress.find(params[:order][:id])
+      @order.postal_code = @shopping_address.postal_code
+      @order.address = @shopping_address.address
+      @order.name = @shopping_address.name
+      render 'confirm'
+    elsif params[:order][:address_option] == "2"
+      @shopping_address = @current_member.shopping_addresses.new
+      @shopping_address.address = params[:order][:address]
+      @shopping_address.name = params[:order][:name]
+      @shopping_address.postal_code = params[:order][:postal_code]
+      @shopping_address.member_id = @current_member.id
+      if @shopping_address.save
+      @order.postal_code = @shopping_address.postal_code
+      @order.name = @shopping_address.name
+      @order.address = @shopping_address.address
+      else
+       render 'new'
+      end
+    end
+  end
+
+  def complete
+  end
+
   def show
   end
 
   def index
   end
 
-  def create
-    order = Order.new(order_params)
-    # order.member_id = Member.find(2)
-    order.save
-
-  end
-
-  def confirm
-  end
-
   private
 
   def order_params
-    params.require(:order).permit(:pay, :postal_code, :address, :name)
+    params.require(:order).permit(:pay, :postal_code, :address, :name, :postage, :amount)
   end
 end

@@ -45,3 +45,30 @@ ShoppingAddress.create!(
   address:'テスト県テスト市4-44',
   name:'試作二郎'
 )
+
+Item.create!(
+  name:'チーズケーキ',
+  explanation:'おいしいです',
+  not_tax_price:300,
+  is_active:true
+)
+
+Item.create!(
+  id:2,
+  name:'ショートケーキ',
+  explanation:'とてもおいしいです',
+  not_tax_price:200,
+  is_active:true
+)
+
+CurtItem.create!(
+  member_id:2,
+  item_id:1,
+  quantity:2
+)
+
+CurtItem.create!(
+  member_id:2,
+  item_id:2,
+  quantity:2
+)
