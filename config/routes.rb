@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   root to: "public/homes#top"
   get 'about'=> 'public/homes#about'
+  get 'admin'=> 'admin/homes#top'
+
 
   scope module: :public do
   resources :shopping_addresses
