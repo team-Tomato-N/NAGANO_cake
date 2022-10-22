@@ -9,4 +9,5 @@ class CartItem < ApplicationRecord
     end
     return (array.sum * 1.1).floor
   end
+  
 end

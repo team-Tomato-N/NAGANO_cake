@@ -15,7 +15,7 @@
         <% @cart_items.each do |cart_item| %>
           <tr>
             <td>
-                <!--%= image_tag cart_item.item, :image, fallback: "no_image.jpg", size:"80x50" %>-->
+                <!--%= image_tag, curt_item.item.get_item_image(180, 130) %>-->
                 <%= cart_item.item.name %>
             </td>
             <td>¥<%= (cart_item.item.not_tax_price * 1.1).floor.to_s(:delimited) %>円</td>
@@ -63,6 +63,7 @@
   <div class="row m-3">
     <h3 class="mr-3">お届け先</h3>
     <div>
+      <%= "〒" %>
       <%= @order.postal_code.to_s.insert(3, "-") %>
       <%= f.hidden_field :postal_code, :value => @order.postal_code %>
       <%= @order.address %></br>

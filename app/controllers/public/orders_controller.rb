@@ -1,12 +1,8 @@
 class Public::OrdersController < ApplicationController
-
+  before_action :authenticate_member!
 
   def new
     @order = Order.new
-  end
-
-  def create
-
   end
 
   def confirm
@@ -43,6 +39,25 @@ class Public::OrdersController < ApplicationController
     end
   end
 
+  def create
+    @order = Order.new(order_params)
+    @order.member_id = current_member.id
+    if @order.save!
+      @cart_items = current_member.cart_items
+      @cart_items.each do |cart_item|
+        order_detail = OrderDetail.new(order_id: @order.id)
+        order_detail.price = cart_item.item.not_tax_price
+        order_detail.quantity = cart_item.quantity
+        order_detail.item_id = cart_item.item_id
+        order_detail.save!
+      end
+      @cart_items.destroy_all
+      redirect_to orders_complete_path
+    else
+      render "new"
+    end
+  end
+
   def complete
   end
 
@@ -52,7 +67,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = current_member.orders.all
+    @orders = current_member.orders
   end
 
   private
