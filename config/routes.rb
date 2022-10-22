@@ -8,8 +8,12 @@ Rails.application.routes.draw do
   sessions: 'public/sessions'
 }
 
+  root to: "public/homes#top"
+  get 'about'=> 'public/homes#about'
+
   scope module: :public do
   resources :shopping_addresses
+
   end
 
   #get以下がURLの最後の記述で、to:いかがフォルダ→コントローラ名→アクション名
