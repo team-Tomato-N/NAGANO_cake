@@ -1,4 +1,5 @@
 class Public::ShoppingAddressesController < ApplicationController
+  before_action :authenticate_member!
 
   def index
       @shopping_addresses = ShoppingAddress.all

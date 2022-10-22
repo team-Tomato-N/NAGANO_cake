@@ -31,3 +31,7 @@ Member.create!(
   password:'111111'
 )
 
+Admin.create!(
+  email:'admin@webcamp.jp',
+  password:'password'
+)
