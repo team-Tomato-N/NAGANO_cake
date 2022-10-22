@@ -11,11 +11,12 @@
   </head>
 
   <body>
+    <div id= "wrapper">
     <header class="header">
-      <nav class="navbar navbar-expand-lg navbar-light p-3"style="background-color:#F08080;">
+      <nav class="navbar navbar-expand-lg navbar-light "style="background-color:#D2B48C;">
         <div class="container">
-          <a class="navbar-brand" href="/">
-            <span>NAGANO_CAKE</span>
+          <a class="navbar-brand col-5" href="/">
+            <%= image_tag('logo.png', width: '60%', height: '60%' )  %>
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -28,17 +29,17 @@
                  ようこそ<strong> <%= link_to current_member.last_name %>さん！</strong>
                 </li>
                 <li class="nav-item mx-3">
-                  <%#= link_to  my_page_path(current_member) do  %>
+                  <%#= link_to  my_page_path(current_member) do  %><!--河内担当-->
                   <i class="fa-solid fa-user-gear">マイページ</i>
                   <%# end %>
                 </li>
                 <li class="nav-item mx-3">
-                  <%#= link_to items_path  do %>
+                  <%#= link_to items_path  do %><!--OK-->
                   <i class="fa-sharp fa-solid fa-cake-candles">商品一覧</i>
                   <%# end %>
                 </li>
                 <li class="nav-item mx-3">
-                  <%#= link_to  cart_path  do %>
+                  <%#= link_to  cart_items_path  do %><!--OK-->
                   <i class="fa-solid fa-cart-shopping">カート</i>
                   <%# end %>
                 </li>
@@ -50,22 +51,22 @@
                <!--管理者ログイン時-->
               <% elsif admin_signed_in? %>
                 <li class="nav-item mx-3">
-                  <%#= link_to items_path  do %>
+                  <%#= link_to items_path  do %><!--OK-->
                   <i class="fa-sharp fa-solid fa-cake-candles">商品一覧</i>
                   <%# end %>
                 </li>
                 <li class="nav-item mx-3">
-                  <%#= link_to members_path  do %>
+                  <%#= link_to members_path  do %><!--河内担当-->
                   <i class="fa-solid fa-users">会員一覧</i>
                   <%# end %>
                 </li>
                 <li class="nav-item">
-                  <%#= link_to orders_path  do %>
+                  <%#= link_to orders_path  do %><!--河内担当-->
                   <i class="fa-solid fa-memo-circle-check">注文履歴一覧</i>
                   <%# end %>
                 </li>
                 <li class="nav-item mx-3">
-                  <%#= link_to genres_path  do %>
+                  <%#= link_to genres_path  do %><!--河内担当-->
                   <i class="fa-solid fa-list-radio">ジャンル一覧</i>
                   <%# end %>
                 </li>
@@ -82,7 +83,7 @@
                   <% end %>
                 </li>
                 <li class="nav-item mx-3">
-                  <%#= link_to items_path, class: 'nav-link text-dark' do %>
+                  <%#= link_to items_path, class: 'nav-link text-dark' do %><!--OK-->
                    <i class="fa-sharp fa-solid fa-cake-candles">商品一覧</i>
                   <%# end %>
                 </li>
@@ -102,6 +103,10 @@
         </div>
       </nav>
     </header>
+    <main>
     <%= yield %>
+    </main>
+    <footer class="p-3">フッター部分</footer>
+    </div>
   </body>
 </html>
