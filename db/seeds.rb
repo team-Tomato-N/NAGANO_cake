@@ -58,3 +58,8 @@ CartItem.create!(
   item_id:1,
   quantity:3
 )
+
+Admin.create!(
+ email:'admin@webcamp.jp',
+ password:'password'
+)
