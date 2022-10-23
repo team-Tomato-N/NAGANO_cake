@@ -5,4 +5,10 @@ class Member < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :shopping_addresses, dependent: :destroy
+
+  def active_for_authentication?
+    super && (is_deleted == false)
+  end
+
+
 end

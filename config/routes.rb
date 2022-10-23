@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'members/info/edit'=> 'public/members#edit'
   patch 'members/info'=> 'public/members#update'
   get 'members/confirm'=> 'public/members#confirm'
+  patch 'members/withdraw'=> 'public/members#withdraw'
 
 
   scope module: :public do

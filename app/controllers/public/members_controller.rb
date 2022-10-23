@@ -22,6 +22,15 @@ class Public::MembersController < ApplicationController
   def confirm
   end
 
+  def withdraw
+    @member = current_member
+    # is_deletedカラムをtrueに変更することにより削除フラグを立てる
+    @member.update(is_deleted: true)
+    reset_session
+    flash[:notice] = "退会処理を実行いたしました"
+    redirect_to root_path
+  end
+
   private
   def update_params
     params.require(:member).permit(:last_name, :first_name, :last_furigana, :first_furigana, :postal_code, :address, :phone_number, :email)
