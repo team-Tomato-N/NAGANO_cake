@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   get 'admin'=> 'admin/homes#top'
   get 'members/my_page'=> 'public/members#show'
   get 'members/info/edit'=> 'public/members#edit'
+  patch 'members/info'=> 'public/members#update'
   get 'members/confirm'=> 'public/members#confirm'
+
 
   scope module: :public do
     resources :shopping_addresses
