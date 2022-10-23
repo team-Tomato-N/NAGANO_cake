@@ -30,3 +30,8 @@ Member.create!(
   phone_number:'1234567890',
   password:'111111'
 )
+
+Admin.create!(
+  email:'admin@webcamp.jp',
+  password:'password'
+)

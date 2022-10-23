@@ -1,6 +1,20 @@
 Rails.application.routes.draw do
-  devise_for :admins
-  devise_for :members
+  namespace :admin do
+    get 'homes/top'
+  end
+  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+  sessions: "admin/sessions"
+}
+
+  devise_for :members,skip: [:passwords], controllers: {
+  registrations: "public/registrations",
+  sessions: 'public/sessions'
+}
+
+  root to: "public/homes#top"
+  get 'about'=> 'public/homes#about'
+  get 'admin'=> 'admin/homes#top'
+
 
   scope module: :public do
   resources :shopping_addresses
