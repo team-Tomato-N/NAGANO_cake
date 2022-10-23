@@ -2,7 +2,13 @@ class Public::OrdersController < ApplicationController
   before_action :authenticate_member!
 
   def new
+    # if @cart_items == nil
+    # redirect_to root_path ふわちゃんから聞いたら消す
+    # render cart_items_path　ふわちゃんから聞いたら変更
+    # else
+    # redirect_to  new_order_path
     @order = Order.new
+    # end
   end
 
   def confirm
@@ -18,7 +24,7 @@ class Public::OrdersController < ApplicationController
       @order.name = current_member.last_name + " " + current_member.first_name
       render 'confirm'
     elsif params[:order][:address_option] == "1"
-      @shopping_address = ShoppingAddress.find(params[:order][:shopping_address_id])
+      @shopping_address = ShoppingAddress.find_by(params[:order][:shopping_address_id])
       @order.postal_code = @shopping_address.postal_code
       @order.address = @shopping_address.address
       @order.name = @shopping_address.name

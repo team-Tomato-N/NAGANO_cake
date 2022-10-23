@@ -48,15 +48,121 @@ ShoppingAddress.create!(
 )
 
 Item.create!(
-  name:'チョコケーキ',
-  explanation:'おいしいです',
-  not_tax_price:250
-)
+
+  id:1,
+
+  name:'ショートケーキ',
+
+  explanation:'獲れたてのイチゴを使っています！',
+
+  not_tax_price:450,
+ )
+
+
+
+ Item.create!(
+
+  id:2,
+
+  name:'チョコレートケーキ',
+
+  explanation:'チョコレートが濃厚です！',
+
+  not_tax_price:450,
+
+ )
+
+
+
+ Item.create!(
+
+  id:3,
+
+  name:'モンブラン',
+
+  explanation:'地元でとれた栗を使用しています！',
+
+  not_tax_price:450,
+
+ )
+
+
+
+ Item.create!(
+
+  id:4,
+
+  name:'ロールケーキ',
+
+  explanation:'生クリームがたっぷり入っています！',
+
+  not_tax_price:450,
+
+
+ )
+
+
+
+ Item.create!(
+
+  id:5,
+
+  name:'プリン',
+
+  explanation:'口当たりがまろやかな人気商品です！',
+
+  not_tax_price:300,
+
+ )
+
+
+
+ Item.create!(
+
+  id:6,
+
+  name:'シュークリーム',
+
+  explanation:'外の生地はサクサクで、中のクリームは濃厚です！',
+
+  not_tax_price:300,
+
+ )
 
 CartItem.create!(
   member_id:2,
   item_id:1,
   quantity:3
+)
+
+CartItem.create!(
+  member_id:2,
+  item_id:2,
+  quantity:5
+)
+
+CartItem.create!(
+  member_id:2,
+  item_id:3,
+  quantity:2
+)
+
+CartItem.create!(
+  member_id:2,
+  item_id:4,
+  quantity:1
+)
+
+CartItem.create!(
+  member_id:2,
+  item_id:5,
+  quantity:3
+)
+
+CartItem.create!(
+  member_id:2,
+  item_id:6,
+  quantity:4
 )
 
 Admin.create!(
