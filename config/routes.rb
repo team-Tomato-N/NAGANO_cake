@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :items, only:[:index, :show]
   resources :cart_items, only:[:index, :create,:update, :destroy]
   delete "/cart_item/destroy_all" => "cart_items#destroy_all"
+  get "/orders_confirm" => "orders#confirm"
   end
 
   #get以下がURLの最後の記述で、to:いかがフォルダ→コントローラ名→アクション名
