@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  namespace :public do
+    get 'members/show'
+    get 'members/edit'
+    get 'members/confirm'
+  end
   namespace :admin do
     get 'homes/top'
   end
