@@ -4,7 +4,7 @@ class Public::CartItemsController < ApplicationController
   end
   
   def create
-    @cart_item = current_umember.cart_item.new(cart_item_params)
+    @cart_item = current_member.cart_item.new(cart_item_params)
       if current_member.cart_item.find_by(params[:item_id])
         new_quantity = current_member.cart_item.quantity + @cart_item.quantity
         cart_item.update_attribute(:quantity, new_quantity)
@@ -26,8 +26,7 @@ class Public::CartItemsController < ApplicationController
   end
   
   def destroy_all
-    # cart_items = Member.find(2).cart_items
-    @cart_items = current_member.cart_items
+    cart_items = current_member.cart_items
     cart_items.destroy_all
    
     redirect_to items_path
