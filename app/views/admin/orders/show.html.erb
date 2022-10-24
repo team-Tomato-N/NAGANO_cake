@@ -56,7 +56,7 @@
         <tr>
           <td class="col-xs-4"><%= order_detail.item.name%></td>
           <td class="col-xs-2">¥<%= (order_detail.price*1.1).floor.to_s(:delimited) %></td>
-          <td><%= order_detail.amount %></td>
+          <td><%= order_detail.quantity %></td>
           <td class="col-xs-2">¥<%= ((order_detail.price * order_detail.quantity*1.1).floor).to_s(:delimited) %></td>
           <td>
             <%= form_with model:order_detail, url: admin_order_detail_path(order_detail), local: true do |f| %>
