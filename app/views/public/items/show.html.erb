@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+
+    </div>
+    <div class="col-9">
+      <div class="d-flex">
+        <%= image_tag @item.get_item_image(200, 150) %>
+        <div>
+          <h1><%= @item.name %></h1>
+          <h3><%= @item.explanation %></h3>
+          <p>¥<%= @item.tax_price %>(税込)</p>
+          <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
+            <%= f.hidden_field :item_id, :value => @item.id %>
+            <%= f.select :quantity, *[1..10], class: "" %>
+            <%= f.submit "カートに入れる", class: " ml-5 btn btn-success" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

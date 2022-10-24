@@ -2,11 +2,10 @@ class Public::OrdersController < ApplicationController
   before_action :authenticate_member!
 
   def new
+    @cart_items = current_member.cart_items
     if @cart_items == nil
-    redirect_to root_path
     render cart_items_path
     else
-    redirect_to  new_order_path
     @order = Order.new
     end
   end

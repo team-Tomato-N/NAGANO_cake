@@ -2,13 +2,15 @@ class Public::ShoppingAddressesController < ApplicationController
   before_action :authenticate_member!
 
   def index
-      @shopping_addresses = ShoppingAddress.all
-      @shopping_address = ShoppingAddress.new
+    @member = current_member
+    @shopping_address = ShoppingAddress.new
+    @shopping_addresses =  @member.shopping_addresses
   end
 
   def create
-    shopping_address = ShoppingAddress.new(shopping_address_params)
-    shopping_address.save
+    @shopping_address = ShoppingAddress.new(shopping_address_params)
+    @shopping_address.member_id = current_member.id
+    @shopping_address.save
     redirect_to shopping_addresses_path
   end
 
