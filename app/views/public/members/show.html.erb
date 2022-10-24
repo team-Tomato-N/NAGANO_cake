@@ -10,27 +10,27 @@
   <table class="table table-bordered">
     <tr>
       <th class="table-active">氏名</th>
-      <td class="table-active"><%= current_member.last_name %></td>
+      <td class="table-active"><%= @member.last_name %><%= "　" %><%=@member.first_name %></td>
     </tr>
     <tr>
-      <th class="table-active">名前</th>
-      <td class="table-active"><%= current_member.first_name %></td>
+      <th class="table-active">カナ</th>
+      <td class="table-active"><%= @member.last_furigana %><%= "　" %><%=@member.first_furigana %></td>
     </tr>
     <tr>
       <th class="table-active">郵便番号</th>
-      <td class="table-active"><%= current_member.postal_code %></td>
+      <td class="table-active"><%= @member.postal_code %></td>
     </tr>
     <tr>
       <th class="table-active">住所</th>
-      <td class="table-active"><%= current_member.address %></td>
+      <td class="table-active"><%= @member.address %></td>
     </tr>
     <tr>
       <th class="table-active">電話番号</th>
-      <td class="table-active"><%= current_member.phone_number %></td>
+      <td class="table-active"><%= @member.phone_number %></td>
     </tr>
     <tr>
       <th class="table-active">メールアドレス</th>
-      <td class="table-active"><%= current_member.email %></td>
+      <td class="table-active"><%= @member.email %></td>
     </tr>
   </table>
   </div>
