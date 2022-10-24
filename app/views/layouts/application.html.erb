@@ -104,7 +104,11 @@
       <%= flash[:notice] %>
       <%= yield %>
     </main>
-    <footer class="p-3">フッター部分</footer>
+    <footer class="p-3">
+        <%= link_to  new_admin_session_path, class: 'nav-link text-dark' do %>
+          <i class="fa-solid fa-key"></i>
+        <% end %>
+      </footer>
     <!--</div>-->
   </body>
 </html>
