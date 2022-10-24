@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   registrations: "public/registrations",
   sessions: 'public/sessions'
 }
+  get "/orders/complete" => "public/orders#complete"
 
   root to: "public/homes#top"
   get 'about'=> 'public/homes#about'
@@ -20,10 +21,11 @@ Rails.application.routes.draw do
 
 
   scope module: :public do
-    resources :shopping_addresses
-
+  resources :shopping_addresses
+  resources :orders, only: [:new, :create, :show, :index]
+  post "/orders/confirm" => "orders#confirm"
+  # get "/orders/complete" => "orders#complete"
   end
-
   #get以下がURLの最後の記述で、to:いかがフォルダ→コントローラ名→アクション名
   #get 'shopping_addresses', to: 'public/shopping_addresses#index'
   #post 'shopping_addresses', to: 'public/shopping_addresses#create'
