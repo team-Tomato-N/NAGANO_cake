@@ -2,13 +2,13 @@ class Public::OrdersController < ApplicationController
   before_action :authenticate_member!
 
   def new
-    # if @cart_items == nil
-    # redirect_to root_path ふわちゃんから聞いたら消す
-    # render cart_items_path　ふわちゃんから聞いたら変更
-    # else
-    # redirect_to  new_order_path
+    if @cart_items == nil
+    redirect_to root_path
+    render cart_items_path
+    else
+    redirect_to  new_order_path
     @order = Order.new
-    # end
+    end
   end
 
   def confirm
