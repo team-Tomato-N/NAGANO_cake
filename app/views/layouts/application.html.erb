@@ -32,14 +32,14 @@
                   <% end %>
                 </li>
                 <li class="nav-item mx-3">
-                  <%#= link_to items_path  do %><!--OK-->
+                  <%= link_to items_path  do %>
                   <i class="fa-sharp fa-solid fa-cake-candles">商品一覧</i>
-                  <%# end %>
+                  <% end %>
                 </li>
                 <li class="nav-item mx-3">
-                  <%#= link_to  cart_items_path  do %><!--OK-->
+                  <%= link_to  cart_items_path  do %>
                   <i class="fa-solid fa-cart-shopping">カート</i>
-                  <%# end %>
+                  <% end %>
                 </li>
                 <li class="nav-item mx-3">
                   <%= link_to destroy_member_session_path, method: :delete do %>

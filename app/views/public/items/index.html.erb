@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+
+    </div>
+    <div class="col-9">
+      <h1>商品一覧</h1>
+      <div class="d-flex flex-wrap">
+        <% @items.each do |item| %>
+        <div class=" ml-5 flex-wrap">
+          <%= link_to item_path(item) do %>
+          <%= image_tag item.get_item_image(80, 80) %>
+          <p class="text-left"><span>商品名</span> <span><%= item.name %></span></p>
+          <p class="text-left">¥<%= item.tax_price %></p>
+        <% end %>
+        </div>
+
+      <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>

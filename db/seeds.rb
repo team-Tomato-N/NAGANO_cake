@@ -166,6 +166,6 @@ CartItem.create!(
 )
 
 Admin.create!(
- email:'admin@webcamp.jp',
- password:'password'
+  email:'admin@webcamp.jp',
+  password:'password'
 )

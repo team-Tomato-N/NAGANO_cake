@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   sessions: 'public/sessions'
 }
   get "/orders/complete" => "public/orders#complete"
-
   root to: "public/homes#top"
   get 'about'=> 'public/homes#about'
   get 'admin'=> 'admin/homes#top'
@@ -22,9 +21,12 @@ Rails.application.routes.draw do
 
   scope module: :public do
   resources :shopping_addresses
+
+  resources :items, only:[:index, :show]
+  resources :cart_items, only:[:index, :create,:update, :destroy]
+  delete "/cart_item/destroy_all" => "cart_items#destroy_all"
   resources :orders, only: [:new, :create, :show, :index]
   post "/orders/confirm" => "orders#confirm"
-  # get "/orders/complete" => "orders#complete"
   end
   #get以下がURLの最後の記述で、to:いかがフォルダ→コントローラ名→アクション名
   #get 'shopping_addresses', to: 'public/shopping_addresses#index'
