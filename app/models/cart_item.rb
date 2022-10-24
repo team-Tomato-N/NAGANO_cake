@@ -4,7 +4,7 @@ class CartItem < ApplicationRecord
   def subtotal
     item.tax_price * quantity
   end
-  def self.cart_items_toral_price(cart_items)
+  def self.cart_items_total_price(cart_items)
     array =[]
     cart_items.each do |cart_item|
       array << cart_item.item.not_tax_price* cart_item.quantity

@@ -36,7 +36,7 @@
         <% end %>
       </tbody>
     </table>
-    <% CartItem.cart_items_toral_price(@cart_items) %>
+    <% CartItem.cart_items_total_price(@cart_items) %>
   <div class="row">
     <div class="col-lg-5 ml-4">
       <%= link_to "買い物を続ける", items_path, class: "btn btn-primary" %>
@@ -45,7 +45,7 @@
       <table class="table table-bordered">
         <tr>
           <td class="table-secondary">合計金額</td>
-           <td><%= CartItem.cart_items_toral_price(@cart_items).to_s(:delimited) %></td>
+           <td><%= CartItem.cart_items_total_price(@cart_items).to_s(:delimited) %></td>
         </tr>
       </table>
     </div>
