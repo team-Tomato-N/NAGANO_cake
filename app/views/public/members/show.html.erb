@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <h4>マイページ</h4>
+  </div>
+   <div class="row col-9 mt-4">
+    <h4>登録情報</h4><h5 class="mx-5"><%= link_to "編集する" , members_info_edit_path, class: 'btn btn-success' %></h5>
+  </div>
+  <div class="row col-9 ">
+  <div class="table-responsive table-hover">
+  <table class="table table-bordered">
+    <tr>
+      <th class="table-active">氏名</th>
+      <td class="table-active"><%= current_member.last_name %></td>
+    </tr>
+    <tr>
+      <th class="table-active">名前</th>
+      <td class="table-active"><%= current_member.first_name %></td>
+    </tr>
+    <tr>
+      <th class="table-active">郵便番号</th>
+      <td class="table-active"><%= current_member.postal_code %></td>
+    </tr>
+    <tr>
+      <th class="table-active">住所</th>
+      <td class="table-active"><%= current_member.address %></td>
+    </tr>
+    <tr>
+      <th class="table-active">電話番号</th>
+      <td class="table-active"><%= current_member.phone_number %></td>
+    </tr>
+    <tr>
+      <th class="table-active">メールアドレス</th>
+      <td class="table-active"><%= current_member.email %></td>
+    </tr>
+  </table>
+  </div>
+  </div>
+
+    <div class="row mt-4">
+      <h5>配送先　</h5><h5 class="mx-5"><%= link_to "一覧を見る" , shopping_addresses_path, class: 'btn btn-primary' %></h5>
+    </div>
+    <div class="row py-4">
+      <h5>注文履歴</h5><h5 class="mx-5"><%#= link_to "一覧を見る" , orders_path, class: 'btn btn-primary' %></h5>
+    </div>
+
+</div>
