@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="row my-3">
+    <div class="col-sm-10 px-sm-0 mx-auto">
+      <h2>注文情報入力</h2>
+      <%= form_with model: @order, url: orders_confirm_path,  local:true do |f| %>
+      <div>
+        <h3><%= f.label :pay, "支払方法" %></h3>
+        <div class="ml-lg-4">
+        <%= f.radio_button :pay, "クレジットカード", checked: "checked" %>
+        <%= f.label :pay, "クレジットカード" %>
+        </div>
+        <div class="ml-lg-4">
+        <%= f.radio_button :pay, "銀行振込" %>
+        <%= f.label :pay, "銀行振込" %>
+        </div>
+      </div>
+
+      <div class="delivery-address-select">
+        <h3><%= f.label :address, "お届け先" %></h3>
+        <div class="ml-lg-4">
+        <%= f.radio_button :address_option, 0, checked: "checked" %>
+        <%= f.label :address, "ご自身の住所" %>
+        <br>
+        <%= "〒#{current_member.postal_code} #{current_member.address}" %>
+        <%= current_member.last_name + current_member.first_name  %>
+        </div>
+        <div class="ml-lg-4 mt-3">
+        <%= f.radio_button :address_option, 1 %>
+        <%= f.label :address, "登録済住所から選択" %>
+        <br>
+        <%= f.select :shopping_addresses_id, options_from_collection_for_select(current_member.shopping_addresses.all, :id, :address_display) %>
+        </div>
+        <div class="ml-lg-4 mt-3">
+          <%= f.radio_button :address_option, 2 %>
+          <%= f.label :address, "新しいお届け先" %>
+          <div class="row">
+              <div class="col-lg-3 col-xs-3">
+                <%= f.label :postal_code, "郵便番号(ハイフンなし）" %>
+              </div>
+              <div>
+                <%= f.text_field :postal_code %>
+              </div>
+          </div>
+          </br>
+          <div class="row">
+              <div class="col-lg-3 col-xs-3">
+                <%= f.label :address, "住所" %>
+              </div>
+              <div>
+                <%= f.text_field :address %>
+              </div>
+          </div>
+          </br>
+          <div class="row">
+              <div class="col-lg-3 col-xs-3">
+                <%= f.label :name, "宛名" %>
+              </div>
+              <div>
+                <%= f.text_field :name %>
+              </div>
+          </div>
+        </div>
+
+        <br>
+        <div class="text-center">
+        <%= f.submit "確認画面へ進む", class:"btn btn-primary" %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
