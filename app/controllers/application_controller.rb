@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name, :first_name, :last_furigana, :first_furigana, :postal_code, :address, :phone_number])
   end
 
-  private
+  #private
 
 
 
