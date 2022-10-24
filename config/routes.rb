@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   sessions: 'public/sessions'
 }
   get "/orders/complete" => "public/orders#complete"
-
   root to: "public/homes#top"
   get 'about'=> 'public/homes#about'
   get 'admin'=> 'admin/homes#top'
