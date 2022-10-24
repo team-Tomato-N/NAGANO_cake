@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Public::SessionsController < Devise::SessionsController
-  # before_action :configure_sign_in_params, only: [:create]
+  before_action :reject_member, only: [:create]
 
   # GET /resource/sign_in
   # def new
@@ -25,16 +25,22 @@ class Public::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 
-  protected
+  def after_sign_in_path_for(resource)
+    root_path
+  end
+
+  def after_sign_out_path_for(resource)
+    root_path
+  end
+
+
   # 会員の論理削除のための記述。退会後は、同じアカウントでは利用できない。
   def reject_member
-    @member = member.find_by(name: params[:member][:name])
+    @member = Member.find_by(email: params[:member][:email])
     if @member
-      if @member.valid_password?(params[:member][:password]) && (@member.is_deleted == false)
+      if @member.valid_password?(params[:member][:password]) && (@member.is_deleted == true)
         flash[:notice] = "退会済みです。再度ご登録をしてご利用ください。"
-        redirect_to new_member_registration
-      else
-        flash[:notice] = "項目を入力してください"
+        redirect_to new_member_session_path
       end
     end
   end
