@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   patch 'members/info'=> 'public/members#update'
   get 'members/confirm'=> 'public/members#confirm'
   patch 'members/withdraw'=> 'public/members#withdraw'
-
+  get 'members' => 'public/members#dummy'
 
   scope module: :public do
     resources :shopping_addresses

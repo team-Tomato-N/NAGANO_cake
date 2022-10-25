@@ -31,6 +31,10 @@ class Public::MembersController < ApplicationController
     redirect_to root_path
   end
 
+  def dummy
+    redirect_to new_member_registration_path
+  end
+
   private
   def update_params
     params.require(:member).permit(:last_name, :first_name, :last_furigana, :first_furigana, :postal_code, :address, :phone_number, :email)
