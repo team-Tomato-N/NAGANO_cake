@@ -1,5 +1,7 @@
 class Item < ApplicationRecord
   has_many :cart_items, dependent: :destroy
+  belongs_to :genre
+
   def tax_price
     (not_tax_price* 1.1).floor
   end
