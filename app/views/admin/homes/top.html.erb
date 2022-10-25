@@ -1,28 +1,59 @@
-<div class = "container">
-  <div class = "row pt-4">
-    <h4>注文履歴一覧</h4>
-  </div>
+<% if @params.nil? %>
+  <div class = "container">
+    <div class = "row pt-4">
+      <h4>注文履歴一覧</h4>
+    </div>
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th class="header1">購入日時</th>
-        <th class="header2">購入者</th>
-        <th class="header3">注文個数</th>
-        <th class="header4">注文ステータス</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @orders.each do |order| %>
+    <table class="table">
+      <thead>
         <tr>
-          <td class="date"><%#= link_to admin_order_path(order) do %>
-          <%= order.created_at.strftime('%Y年%m月%d日 %H:%M') %>
-          <%# end %></td>
-          <td class="name"><%= order.member.last_name %><%= order.member.first_name %></td>
-          <td class="quantity"><%= order.order_details.sum(:quantity) %></td>
-          <td class="status"><%= order.order_status %></td>
+          <th class="header1">購入日時</th>
+          <th class="header2">購入者</th>
+          <th class="header3">注文個数</th>
+          <th class="header4">注文ステータス</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+          <tr>
+            <td class="date"><%#= link_to admin_order_path(order) do %>
+            <%= order.created_at.strftime('%Y年%m月%d日 %H:%M') %>
+            <%# end %></td>
+            <td class="name"><%= order.member.last_name %><%= order.member.first_name %></td>
+            <td class="quantity"><%= order.order_details.sum(:quantity) %></td>
+            <td class="status"><%= order.order_status %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% else %>
+  <div class = "container">
+    <div class = "row pt-4">
+      <h4>注文履歴一覧（個人用）</h4>
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="header1">購入日時</th>
+          <th class="header2">購入者</th>
+          <th class="header3">注文個数</th>
+          <th class="header4">注文ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order.each do |order| %>
+          <tr>
+            <td class="date"><%#= link_to admin_order_path(order) do %>
+            <%= order.created_at.strftime('%Y年%m月%d日 %H:%M') %>
+            <%# end %></td>
+            <td class="name"><%= order.member.last_name %><%= order.member.first_name %></td>
+            <td class="quantity"><%= order.order_details.sum(:quantity) %></td>
+            <td class="status"><%= order.order_status %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

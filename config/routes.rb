@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'members/index'
+    get 'members/show'
+    get 'members/edit'
+  end
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
@@ -28,6 +33,12 @@ Rails.application.routes.draw do
   resources :orders, only: [:new, :create, :show, :index]
   post "/orders/confirm" => "orders#confirm"
   end
+
+  namespace :admin do
+    resources :members, only: [:update, :edit, :show, :index]
+  end
+
+
   #get以下がURLの最後の記述で、to:いかがフォルダ→コントローラ名→アクション名
   #get 'shopping_addresses', to: 'public/shopping_addresses#index'
   #post 'shopping_addresses', to: 'public/shopping_addresses#create'
