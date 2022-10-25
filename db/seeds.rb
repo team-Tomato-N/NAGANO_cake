@@ -47,125 +47,126 @@ ShoppingAddress.create!(
   name:'試作二郎'
 )
 
-Item.create!(
 
-  id:1,
+# Item.create!(
 
-  name:'ショートケーキ',
+#   id:1,
+#   genere_id: 1,
+#   name:'ショートケーキ',
 
-  explanation:'獲れたてのイチゴを使っています！',
+#   explanation:'獲れたてのイチゴを使っています！',
 
-  not_tax_price:450,
- )
-
-
-
- Item.create!(
-
-  id:2,
-
-  name:'チョコレートケーキ',
-
-  explanation:'チョコレートが濃厚です！',
-
-  not_tax_price:450,
-
- )
+#   not_tax_price:450,
+# )
 
 
 
- Item.create!(
+# Item.create!(
 
-  id:3,
+#   id:2,
+# genere_id: 1,
+#   name:'チョコレートケーキ',
 
-  name:'モンブラン',
+#   explanation:'チョコレートが濃厚です！',
 
-  explanation:'地元でとれた栗を使用しています！',
+#   not_tax_price:450,
 
-  not_tax_price:450,
-
- )
-
-
-
- Item.create!(
-
-  id:4,
-
-  name:'ロールケーキ',
-
-  explanation:'生クリームがたっぷり入っています！',
-
-  not_tax_price:450,
-
-
- )
+# )
 
 
 
- Item.create!(
+# Item.create!(
 
-  id:5,
+#   id:3,
+#   genere_id: 1,
+#   name:'モンブラン',
 
-  name:'プリン',
+#   explanation:'地元でとれた栗を使用しています！',
 
-  explanation:'口当たりがまろやかな人気商品です！',
+#   not_tax_price:450,
 
-  not_tax_price:300,
-
- )
+# )
 
 
 
- Item.create!(
+# Item.create!(
 
-  id:6,
+#   id:4,
+#   genere_id: 1,
+#   name:'ロールケーキ',
 
-  name:'シュークリーム',
+#   explanation:'生クリームがたっぷり入っています！',
 
-  explanation:'外の生地はサクサクで、中のクリームは濃厚です！',
+#   not_tax_price:450,
 
-  not_tax_price:300,
 
- )
+# )
 
-CartItem.create!(
-  member_id:2,
-  item_id:1,
-  quantity:3
-)
 
-CartItem.create!(
-  member_id:2,
-  item_id:2,
-  quantity:5
-)
 
-CartItem.create!(
-  member_id:2,
-  item_id:3,
-  quantity:2
-)
+# Item.create!(
 
-CartItem.create!(
-  member_id:2,
-  item_id:4,
-  quantity:1
-)
+#   id:5,
+#   genere_id: 1,
+#   name:'プリン',
 
-CartItem.create!(
-  member_id:2,
-  item_id:5,
-  quantity:3
-)
+#   explanation:'口当たりがまろやかな人気商品です！',
 
-CartItem.create!(
-  member_id:2,
-  item_id:6,
-  quantity:4
-)
+#   not_tax_price:300,
 
-Admin.create!(
-  email:'admin@webcamp.jp',
-  password:'password'
-)
+# )
+
+
+
+# Item.create!(
+
+#   id:6,
+#   genere_id: 1,
+#   name:'シュークリーム',
+
+#   explanation:'外の生地はサクサクで、中のクリームは濃厚です！',
+
+#   not_tax_price:300,
+
+# )
+
+# CartItem.create!(
+#   member_id:2,
+#   item_id:1,
+#   quantity:3
+# )
+
+# CartItem.create!(
+#   member_id:2,
+#   item_id:2,
+#   quantity:5
+# )
+
+# CartItem.create!(
+#   member_id:2,
+#   item_id:3,
+#   quantity:2
+# )
+
+# CartItem.create!(
+#   member_id:2,
+#   item_id:4,
+#   quantity:1
+# )
+
+# CartItem.create!(
+#   member_id:2,
+#   item_id:5,
+#   quantity:3
+# )
+
+# CartItem.create!(
+#   member_id:2,
+#   item_id:6,
+#   quantity:4
+# )
+
+# Admin.create!(
+#   email:'admin@webcamp.jp',
+#   password:'password'
+# )

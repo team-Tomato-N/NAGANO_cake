@@ -1,0 +1,25 @@
+<h1>商品詳細</h1>
+<div>
+  <%= image_tag @item.get_item_image(80,80) %>
+  <div>
+    <sapn>商品名</sapn>
+    <sapn><%= @item.name %></sapn>
+  </div>
+ <div>
+    <sapn>商品説明</sapn>
+    <span><%= @item.explanation %></span>
+ </div>
+<div>
+  <sapn>ジャンル</sapn>
+  <span><%= @item.genre.name %></span>
+</div>
+ <div>
+   <sapn>税込み価格（税抜機価格)</sapn>
+   <span><%= @item.not_tax_price %>(<%= (@item.not_tax_price*1.1).floor %>)円</span>
+ </div>
+ <div>
+   <sapn>販売ステータス</sapn>
+   <span><%= @item.is_active %></span>
+ </div>
+</div>
+<%= link_to "編集", admin_edit_item_path(@item) %>

@@ -1,5 +1,8 @@
 class Item < ApplicationRecord
-  has_many :cart_items, dependent: :destroy
+    has_many :cart_items, dependent: :destroy
+    has_many :order_details, dependent: :destroy
+    has_many :orders, dependent: :destroy
+     enum is_active: {販売中:0, 販売停止:1}
   def tax_price
     (not_tax_price* 1.1).floor
   end
