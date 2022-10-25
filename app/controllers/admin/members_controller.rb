@@ -13,12 +13,11 @@ class Admin::MembersController < ApplicationController
 
   def update
   @member = Member.find(params[:id])
-    if
-      @member.update(update_params)
-      flash[:notice] = "successfully updated!"
-      redirect_to members_my_page_path
+    if @member.update(update_params)
+       flash[:notice] = "successfully updated!"
+       redirect_to admin_member_path(@member)
     else
-      render :edit
+       render :edit
     end
   end
 
