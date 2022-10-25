@@ -1,3 +1,11 @@
+<% if @item.errors.any? %>
+  <ul class="alert alert-danger" role="alert">
+　  <h6 class="alert-heading">
+　  <%= @item.errors.count %>件のerrorが発生しました</h6>
+    <% @item.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+<% end %>
 <h1>商品編集</h1>
 <%= form_with model: @item, url: admin_update_item_path(@item), method: :patch do |f| %>
   <%= f.label :商品画像 %>

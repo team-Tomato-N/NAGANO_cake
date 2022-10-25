@@ -1,3 +1,11 @@
+<% if @item.errors.any? %>
+  <ul class="alert alert-danger" role="alert">
+　  <h6 class="alert-heading">
+　  <%= @item.errors.count %>件のerrorが発生しました</h6>
+    <% @item.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+<% end %>
 <h1>商品新規登録</h1>
 <%= form_with model: @item,url: admin_create_items_path, method: :post do |f| %>
   <%= f.label :商品画像 %>
@@ -11,9 +19,9 @@
   <%= f.label :税抜き価格 %>
   <%= f.text_field :not_tax_price %>円<br>
   <%= f.label :販売ステータス %>
-  <%= f.radio_button :is_active, "販売中" %>
+  <%= f.radio_button :is_active, :販売中 %>
   <%= f.label :is_active, "販売中" %>
-  <%= f.radio_button :is_active, "販売停止" %>
+  <%= f.radio_button :is_active, :販売停止 %>
   <%= f.label :is_active, "販売停止" %><br>
   <%= f.submit  "新規登録" %>
 <% end %>

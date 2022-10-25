@@ -1,4 +1,5 @@
 class Admin::ItemsController < ApplicationController
+  before_action :authenticate_admin!
   def index
     @items = Item.all
   end
@@ -6,9 +7,13 @@ class Admin::ItemsController < ApplicationController
     @item = Item.new
   end
   def create
-    item = Item.new(item_params)
-    item.save
-    redirect_to admin_item_path(item.id)
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to admin_item_path(@item.id)
+    else
+      flash.now[:notice] = "全ての情報が入ってません"
+      render :new
+    end
 
   end
   def show
@@ -19,8 +24,12 @@ class Admin::ItemsController < ApplicationController
   end
   def update
     @item = Item.find(params[:id])
-    @item.update(item_params)
-    redirect_to admin_item_path(@item.id)
+    if @item.update(item_params)
+      redirect_to admin_item_path(@item.id)
+    else
+      flash.now[:notice] = "全ての情報が入ってません"
+      render :edit
+    end
   end
 
   private

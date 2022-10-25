@@ -7,6 +7,7 @@
       <h1>商品一覧</h1>
       <div class="d-flex flex-wrap">
         <% @items.each do |item| %>
+        <% if item.is_active == "販売中" %>
         <div class=" ml-5 flex-wrap">
           <%= link_to item_path(item) do %>
           <%= image_tag item.get_item_image(80, 80) %>
@@ -14,7 +15,7 @@
           <p class="text-left">¥<%= item.tax_price %></p>
         <% end %>
         </div>
-
+        <% end %>
       <% end %>
       </div>
 
