@@ -1,6 +1,6 @@
 <div class="container">
-    <div class="row">
-      <h2>新規会員登録</h2>
+    <div class="row py-4">
+      <h3>新規会員登録</h3>
     </div>
     <%= form_with model: @member, url: member_registration_path do |f| %>
         <%= render "public/shared/error_messages", resource: resource %>
@@ -61,10 +61,11 @@
         </div>
     <% end %>
 
-    <div class="row mt-4">
-      <h3>すでに登録済みの方</h3>
+    <div class="row pt-4">
+      <h4>すでに登録済みの方</h4>
     </div>
-
+    <div class="row pb-4">
     <%= link_to "こちら ", new_member_session_path %>からログインしてください。
+    </div>
       <%#= render "public/shared/links" %>
 </div>
