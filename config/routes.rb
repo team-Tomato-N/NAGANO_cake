@@ -1,14 +1,6 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    get 'genres/index'
-    get 'genres/edit'
-  end
-  namespace :admin do
-    get 'members/index'
-    get 'members/show'
-    get 'members/edit'
-  end
+
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
@@ -29,13 +21,13 @@ Rails.application.routes.draw do
 
 
   scope module: :public do
-  resources :shopping_addresses
+    resources :shopping_addresses
 
-  resources :items, only:[:index, :show]
-  resources :cart_items, only:[:index, :create,:update, :destroy]
-  delete "/cart_item/destroy_all" => "cart_items#destroy_all"
-  resources :orders, only: [:new, :create, :show, :index]
-  post "/orders/confirm" => "orders#confirm"
+    resources :items, only:[:index, :show]
+    resources :cart_items, only:[:index, :create,:update, :destroy]
+    delete "/cart_item/destroy_all" => "cart_items#destroy_all"
+    resources :orders, only: [:new, :create, :show, :index]
+    post "/orders/confirm" => "orders#confirm"
   end
 
   namespace :admin do
