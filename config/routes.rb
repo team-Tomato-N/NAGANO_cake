@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    get 'members/index'
-    get 'members/show'
-    get 'members/edit'
-  end
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
@@ -36,6 +31,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :members, only: [:update, :edit, :show, :index]
+    resources :orders, only: [:show, :update]
+    resources :order_details, only: [:update]
   end
 
 
