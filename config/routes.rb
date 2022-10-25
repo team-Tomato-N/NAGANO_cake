@@ -32,6 +32,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :members, only: [:update, :edit, :show, :index]
+    resources :orders, only: [:show, :update]
+    resources :order_details, only: [:update]
     resources :genres, only: [:index, :edit, :create, :update]
   end
 
