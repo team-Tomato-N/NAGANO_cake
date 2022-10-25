@@ -129,41 +129,41 @@ Item.create!(
 
  )
 
-CartItem.create!(
-  member_id:2,
-  item_id:1,
-  quantity:3
-)
+# CartItem.create!(
+#   member_id:2,
+#   item_id:1,
+#   quantity:3
+# )
 
-CartItem.create!(
-  member_id:2,
-  item_id:2,
-  quantity:5
-)
+# CartItem.create!(
+#   member_id:2,
+#   item_id:2,
+#   quantity:5
+# )
 
-CartItem.create!(
-  member_id:2,
-  item_id:3,
-  quantity:2
-)
+# CartItem.create!(
+#   member_id:2,
+#   item_id:3,
+#   quantity:2
+# )
 
-CartItem.create!(
-  member_id:2,
-  item_id:4,
-  quantity:1
-)
+# CartItem.create!(
+#   member_id:2,
+#   item_id:4,
+#   quantity:1
+# )
 
-CartItem.create!(
-  member_id:2,
-  item_id:5,
-  quantity:3
-)
+# CartItem.create!(
+#   member_id:2,
+#   item_id:5,
+#   quantity:3
+# )
 
-CartItem.create!(
-  member_id:2,
-  item_id:6,
-  quantity:4
-)
+# CartItem.create!(
+#   member_id:2,
+#   item_id:6,
+#   quantity:4
+# )
 
 Admin.create!(
   email:'admin@webcamp.jp',

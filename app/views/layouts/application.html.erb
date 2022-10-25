@@ -27,7 +27,7 @@
                  ようこそ<strong> <%= current_member.last_name %>さん！</strong>
                 </li>
                 <li class="nav-item mx-3">
-                  <%= link_to members_my_page_path(current_member) do %><!--河内担当-->
+                  <%= link_to members_my_page_path(current_member) do %>
                   <i class="fa-solid fa-user-gear">マイページ</i>
                   <% end %>
                 </li>
@@ -49,19 +49,19 @@
                <!--管理者ログイン時-->
               <% elsif admin_signed_in? %>
                 <li class="nav-item mx-3">
-                  <%#= link_to items_path  do %><!--OK-->
+                  <%= link_to items_path  do %>
                   <i class="fa-sharp fa-solid fa-cake-candles">商品一覧</i>
-                  <%# end %>
+                  <% end %>
                 </li>
                 <li class="nav-item mx-3">
-                  <%#= link_to members_path  do %><!--河内担当-->
+                  <%= link_to admin_members_path  do %>
                   <i class="fa-solid fa-users">会員一覧</i>
-                  <%# end %>
+                  <% end %>
                 </li>
                 <li class="nav-item">
-                  <%#= link_to orders_path  do %><!--河内担当-->
+                  <%= link_to admin_path  do %>
                   <i class="fa-solid fa-memo-circle-check">注文履歴一覧</i>
-                  <%# end %>
+                  <% end %>
                 </li>
                 <li class="nav-item mx-3">
                   <%#= link_to genres_path  do %><!--河内担当-->
@@ -81,9 +81,9 @@
                   <% end %>
                 </li>
                 <li class="nav-item mx-3">
-                  <%#= link_to items_path, class: 'nav-link text-dark' do %><!--OK-->
+                  <%= link_to items_path, class: 'nav-link text-dark' do %>
                    <i class="fa-sharp fa-solid fa-cake-candles">商品一覧</i>
-                  <%# end %>
+                  <% end %>
                 </li>
                 <li class="nav-item mx-3">
                   <%= link_to  new_member_registration_path, class: 'nav-link text-dark' do %>
@@ -104,7 +104,13 @@
       <%= flash[:notice] %>
       <%= yield %>
     </main>
-    <footer class="p-3">フッター部分</footer>
+    <footer class="p-3">
+      <% unless admin_signed_in? %>
+        <%= link_to  new_admin_session_path, class: 'nav-link text-dark' do %>
+          <i class="fa-solid fa-key"></i>
+        <% end %>
+      <% end %>
+      </footer>
     <!--</div>-->
   </body>
 </html>

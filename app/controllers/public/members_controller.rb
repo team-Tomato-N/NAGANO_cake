@@ -11,12 +11,11 @@ class Public::MembersController < ApplicationController
 
   def update
     @member = current_member
-    if
-      @member.update(update_params)
-      flash[:notice] = "successfully updated!"
-      redirect_to members_my_page_path
+    if @member.update(update_params)
+       flash[:notice] = "successfully updated!"
+       redirect_to members_my_page_path
     else
-      render :edit
+       render :edit
     end
   end
 
