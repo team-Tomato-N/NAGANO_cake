@@ -1,27 +1,57 @@
-<% if @item.errors.any? %>
-  <ul class="alert alert-danger" role="alert">
-　  <h6 class="alert-heading">
-　  <%= @item.errors.count %>件のerrorが発生しました</h6>
-    <% @item.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+<div class="container">
+  <div class="row py-4">
+    <% if @item.errors.any? %>
+      <ul class="alert alert-danger" role="alert">
+        <h6 class="alert-heading">
+        <%= @item.errors.count %>件のerrorが発生しました</h6>
+        <% @item.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
     <% end %>
-<% end %>
-<h1>商品新規登録</h1>
-<%= form_with model: @item,url: admin_create_items_path, method: :post do |f| %>
-  <%= f.label :商品画像 %>
-  <%= f.file_field :item_image, accept: "image/*" %><br>
-  <%= f.label :商品名 %>
-  <%= f.text_field :name %><br>
-  <%= f.label :商品説明 %>
-  <%= f.text_area :explanation %><br>
-  <%= f.label :ジャンル %>
-  <%= f.select :genre_id,  options_from_collection_for_select(Genre.all, :id, :name), include_blank: '選択してください'  %><br>
-  <%= f.label :税抜き価格 %>
-  <%= f.text_field :not_tax_price %>円<br>
-  <%= f.label :販売ステータス %>
-  <%= f.radio_button :is_active, :販売中 %>
-  <%= f.label :is_active, "販売中" %>
-  <%= f.radio_button :is_active, :販売停止 %>
-  <%= f.label :is_active, "販売停止" %><br>
-  <%= f.submit  "新規登録" %>
-<% end %>
+    </div>
+    <div class="row">
+      <h3>商品新規登録</h3>
+    </div>
+  <div class="row">
+    <div class="item-form">
+      <%= form_with model: @item do |f| %>
+      <div class= "col-xs-5">
+        <div class="field">
+          <%= f.label :商品画像, class: "" %>
+          <%= f.file_field :item_image, accept: "image/*", class: "" %><br>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="field">
+          <%= f.label :商品名, class: "pr-3"%>
+          <%= f.text_field :name %>
+        </div>
+        <div class="field label-top">
+          <%= f.label :商品説明, class: "label-top pr-2" %>
+          <%= f.text_area :explanation, class: "" %><br>
+        </div>
+        <div class="field">
+          <%= f.label :ジャンル, class: "pr-3" %>
+          <%= f.select :genre_id,  options_from_collection_for_select(Genre.all, :id, :name), include_blank: '選択してください'  %><br>
+        </div>
+        <div class="field">
+          <%= f.label :税抜き価格, class: "" %>
+          <%= f.text_field :not_tax_price %>円<br>
+        </div>
+        <div class="field">
+          <%= f.label :販売ステータス, class: "" %>
+          <%= f.radio_button :is_active, :販売中 %>
+          <%= f.label :is_active, "販売中" %>
+          <%= f.radio_button :is_active, :販売停止 %>
+          <%= f.label :is_active, "販売停止" %><br>
+        </div>
+        <div class= "actions">
+          <%= f.submit  "新規登録",class: "btn btn-success" %>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+  <!--</div>-->
+</div>

@@ -9,9 +9,9 @@ class Admin::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
+      flash[:notice] = ""
       redirect_to admin_item_path(@item.id)
     else
-      flash.now[:notice] = "全ての情報が入ってません"
       render :new
     end
 
@@ -25,9 +25,9 @@ class Admin::ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update(item_params)
+      flash[:notice] = ""
       redirect_to admin_item_path(@item.id)
     else
-      flash.now[:notice] = "全ての情報が入ってません"
       render :edit
     end
   end
