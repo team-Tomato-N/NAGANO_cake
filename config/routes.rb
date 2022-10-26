@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
@@ -12,27 +13,38 @@ Rails.application.routes.draw do
   root to: "public/homes#top"
   get 'about'=> 'public/homes#about'
   get 'admin'=> 'admin/homes#top'
+
+  # get "admin/items" => "admin/items#index", as: "admin_items"
+  # get "admin/items/new" => "admin/items#new", as: "admin_new_items"
+  # post "admin/items" => "admin/items#create", as: "admin_create_items"
+  # get "admin/items/:id" => "admin/items#show", as: "admin_item"
+  # get "admin/items/:id/edit" => "admin/items#edit", as: "admin_edit_item"
+  # patch "admin/items/:id" => "admin/items#update", as: "admin_update_item"
+
+
   get 'members/my_page'=> 'public/members#show'
   get 'members/info/edit'=> 'public/members#edit'
   patch 'members/info'=> 'public/members#update'
   get 'members/confirm'=> 'public/members#confirm'
   patch 'members/withdraw'=> 'public/members#withdraw'
-
+  get 'members' => 'public/members#dummy'
 
   scope module: :public do
-  resources :shopping_addresses
+    resources :shopping_addresses
 
-  resources :items, only:[:index, :show]
-  resources :cart_items, only:[:index, :create,:update, :destroy]
-  delete "/cart_item/destroy_all" => "cart_items#destroy_all"
-  resources :orders, only: [:new, :create, :show, :index]
-  post "/orders/confirm" => "orders#confirm"
+    resources :items, only:[:index, :show]
+    resources :cart_items, only:[:index, :create,:update, :destroy]
+    delete "/cart_item/destroy_all" => "cart_items#destroy_all"
+    resources :orders, only: [:new, :create, :show, :index]
+    post "/orders/confirm" => "orders#confirm"
   end
 
   namespace :admin do
     resources :members, only: [:update, :edit, :show, :index]
+    resources :items
     resources :orders, only: [:show, :update]
     resources :order_details, only: [:update]
+    resources :genres, only: [:index, :edit, :create, :update]
   end
 
 
