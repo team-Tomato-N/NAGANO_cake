@@ -12,6 +12,15 @@ Rails.application.routes.draw do
   root to: "public/homes#top"
   get 'about'=> 'public/homes#about'
   get 'admin'=> 'admin/homes#top'
+
+  # get "admin/items" => "admin/items#index", as: "admin_items"
+  # get "admin/items/new" => "admin/items#new", as: "admin_new_items"
+  # post "admin/items" => "admin/items#create", as: "admin_create_items"
+  # get "admin/items/:id" => "admin/items#show", as: "admin_item"
+  # get "admin/items/:id/edit" => "admin/items#edit", as: "admin_edit_item"
+  # patch "admin/items/:id" => "admin/items#update", as: "admin_update_item"
+
+
   get 'members/my_page'=> 'public/members#show'
   get 'members/info/edit'=> 'public/members#edit'
   patch 'members/info'=> 'public/members#update'
@@ -31,6 +40,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :members, only: [:update, :edit, :show, :index]
+    resources :items
     resources :orders, only: [:show, :update]
     resources :order_details, only: [:update]
   end

@@ -1,0 +1,38 @@
+<div class= "container ">
+  <div class="row ">
+  <h3>商品詳細</h3>
+</div>
+<div class="row">
+  <div class="admin-item-info">
+  	<div class="col-xs-5">
+      <div class="item-info-image">
+        <%= image_tag @item.get_item_image(400,300) %>
+      </div>
+      <div class="col-xs-6">
+        <div class="info-content">
+          <span>商品名</span>
+          <span><%= @item.name %></span>
+        </div>
+        <div class="info-content">
+          <span>商品説明</span>
+          <sapn><%= @item.explanation %></sapn>
+        </div>
+        <div class="info-content">
+          <p>ジャンル</p>
+          <sapn><%= @item.genre.name %></span>
+        </div>
+        <div class="info-content">
+          <sapn>税込み価格（税抜機価格)</sapn>
+          <span><%= @item.not_tax_price %>(<%= (@item.not_tax_price*1.1).floor %>)円</span>
+        </div>
+        <div>
+          <sapn>販売ステータス</sapn>
+          <span><%= @item.is_active %></span>
+        </div>
+        <div class="text-center">
+          <%= link_to "編集",  edit_admin_item_path(@item), class: "btn btn-success" %>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
