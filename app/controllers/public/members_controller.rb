@@ -25,7 +25,7 @@ class Public::MembersController < ApplicationController
   def withdraw
     @member = current_member
     # is_deletedカラムをtrueに変更することにより削除フラグを立てる
-    @member.update(is_deleted: true)
+    @member.update!(is_deleted: true)
     reset_session
     flash[:notice] = "退会処理を実行いたしました"
     redirect_to root_path

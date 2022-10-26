@@ -51,7 +51,7 @@
                <!--管理者ログイン時-->
               <% elsif admin_signed_in? %>
                 <li class="nav-item mx-3">
-                  <%= link_to items_path, class: 'nav-link text-dark'   do %>
+                  <%= link_to admin_items_path, class: 'nav-link text-dark'   do %>
                   <i class="fa-sharp fa-solid fa-cake-candles">商品一覧</i>
                   <% end %>
                 </li>

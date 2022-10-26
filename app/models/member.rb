@@ -20,5 +20,4 @@ class Member < ApplicationRecord
   validates :email, presence: true
   validates :address, presence: true
   validates :phone_number, presence: true
-  validates :password, presence: true
 end
