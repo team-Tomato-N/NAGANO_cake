@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
@@ -26,16 +27,16 @@ Rails.application.routes.draw do
   patch 'members/info'=> 'public/members#update'
   get 'members/confirm'=> 'public/members#confirm'
   patch 'members/withdraw'=> 'public/members#withdraw'
-
+  get 'members' => 'public/members#dummy'
 
   scope module: :public do
-  resources :shopping_addresses
+    resources :shopping_addresses
 
-  resources :items, only:[:index, :show]
-  resources :cart_items, only:[:index, :create,:update, :destroy]
-  delete "/cart_item/destroy_all" => "cart_items#destroy_all"
-  resources :orders, only: [:new, :create, :show, :index]
-  post "/orders/confirm" => "orders#confirm"
+    resources :items, only:[:index, :show]
+    resources :cart_items, only:[:index, :create,:update, :destroy]
+    delete "/cart_item/destroy_all" => "cart_items#destroy_all"
+    resources :orders, only: [:new, :create, :show, :index]
+    post "/orders/confirm" => "orders#confirm"
   end
 
   namespace :admin do
@@ -43,6 +44,7 @@ Rails.application.routes.draw do
     resources :items
     resources :orders, only: [:show, :update]
     resources :order_details, only: [:update]
+    resources :genres, only: [:index, :edit, :create, :update]
   end
 
 

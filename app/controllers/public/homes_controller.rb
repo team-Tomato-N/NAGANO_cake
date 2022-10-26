@@ -1,8 +1,7 @@
 class Public::HomesController < ApplicationController
   def top
-    #@genres = Genre.where(is_active: true)
-    @items = Item.all
-    @random = Item.order("RANDOM()").limit(4)
+    @genres = Genre.all
+    @items = Item.order('id DESC').limit(4)
   end
 
   def about
