@@ -15,7 +15,7 @@
     </div>
     <div class="row">
      <div class="item-form">
-    <%= form_with model: @item do |f| %>
+    <%= form_with model: @item, url: admin_item_path(@item), method: :patch do |f| %>
       <div class= "col-xs-5">
         <div class="field">
           <%= f.label :商品画像 %>
