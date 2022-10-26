@@ -33,101 +33,101 @@ Member.create!(
 )
 
 
-ShoppingAddress.create!(
-  member_id:2,
-  postal_code:'333333',
-  address:'テスト県テスト市3-33',
-  name:'試作太郎'
-)
+# ShoppingAddress.create!(
+#   member_id:2,
+#   postal_code:'333333',
+#   address:'テスト県テスト市3-33',
+#   name:'試作太郎'
+# )
 
-ShoppingAddress.create!(
-  member_id:2,
-  postal_code:'444444',
-  address:'テスト県テスト市4-44',
-  name:'試作二郎'
-)
+# ShoppingAddress.create!(
+#   member_id:2,
+#   postal_code:'444444',
+#   address:'テスト県テスト市4-44',
+#   name:'試作二郎'
+# )
 
-Item.create!(
+# Item.create!(
 
-  id:1,
+#   id:1,
 
-  name:'ショートケーキ',
+#   name:'ショートケーキ',
 
-  explanation:'獲れたてのイチゴを使っています！',
+#   explanation:'獲れたてのイチゴを使っています！',
 
-  not_tax_price:450,
- )
-
-
-
- Item.create!(
-
-  id:2,
-
-  name:'チョコレートケーキ',
-
-  explanation:'チョコレートが濃厚です！',
-
-  not_tax_price:450,
-
- )
+#   not_tax_price:450,
+# )
 
 
 
- Item.create!(
+# Item.create!(
 
-  id:3,
+#   id:2,
 
-  name:'モンブラン',
+#   name:'チョコレートケーキ',
 
-  explanation:'地元でとれた栗を使用しています！',
+#   explanation:'チョコレートが濃厚です！',
 
-  not_tax_price:450,
+#   not_tax_price:450,
 
- )
-
-
-
- Item.create!(
-
-  id:4,
-
-  name:'ロールケーキ',
-
-  explanation:'生クリームがたっぷり入っています！',
-
-  not_tax_price:450,
-
-
- )
+# )
 
 
 
- Item.create!(
+# Item.create!(
 
-  id:5,
+#   id:3,
 
-  name:'プリン',
+#   name:'モンブラン',
 
-  explanation:'口当たりがまろやかな人気商品です！',
+#   explanation:'地元でとれた栗を使用しています！',
 
-  not_tax_price:300,
+#   not_tax_price:450,
 
- )
+# )
 
 
 
- Item.create!(
+# Item.create!(
 
-  id:6,
+#   id:4,
 
-  name:'シュークリーム',
+#   name:'ロールケーキ',
 
-  explanation:'外の生地はサクサクで、中のクリームは濃厚です！',
+#   explanation:'生クリームがたっぷり入っています！',
 
-  not_tax_price:300,
+#   not_tax_price:450,
 
- )
+
+# )
+
+
+
+# Item.create!(
+
+#   id:5,
+
+#   name:'プリン',
+
+#   explanation:'口当たりがまろやかな人気商品です！',
+
+#   not_tax_price:300,
+
+# )
+
+
+
+# Item.create!(
+
+#   id:6,
+
+#   name:'シュークリーム',
+
+#   explanation:'外の生地はサクサクで、中のクリームは濃厚です！',
+
+#   not_tax_price:300,
+
+# )
 
 # CartItem.create!(
 #   member_id:2,
