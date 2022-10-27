@@ -33,25 +33,24 @@ Member.create!(
 )
 
 
-ShoppingAddress.create!(
-  member_id:2,
-  postal_code:'333333',
-  address:'テスト県テスト市3-33',
-  name:'試作太郎'
-)
+# ShoppingAddress.create!(
+#   member_id:2,
+#   postal_code:'333333',
+#   address:'テスト県テスト市3-33',
+#   name:'試作太郎'
+# )
 
-ShoppingAddress.create!(
-  member_id:2,
-  postal_code:'444444',
-  address:'テスト県テスト市4-44',
-  name:'試作二郎'
-)
-
+# ShoppingAddress.create!(
+#   member_id:2,
+#   postal_code:'444444',
+#   address:'テスト県テスト市4-44',
+#   name:'試作二郎'
+# )
 
 # Item.create!(
 
 #   id:1,
-#   genere_id: 1,
+
 #   name:'ショートケーキ',
 
 #   explanation:'獲れたてのイチゴを使っています！',
@@ -64,7 +63,7 @@ ShoppingAddress.create!(
 # Item.create!(
 
 #   id:2,
-# genere_id: 1,
+
 #   name:'チョコレートケーキ',
 
 #   explanation:'チョコレートが濃厚です！',
@@ -78,7 +77,7 @@ ShoppingAddress.create!(
 # Item.create!(
 
 #   id:3,
-#   genere_id: 1,
+
 #   name:'モンブラン',
 
 #   explanation:'地元でとれた栗を使用しています！',
@@ -92,7 +91,7 @@ ShoppingAddress.create!(
 # Item.create!(
 
 #   id:4,
-#   genere_id: 1,
+
 #   name:'ロールケーキ',
 
 #   explanation:'生クリームがたっぷり入っています！',
@@ -107,7 +106,7 @@ ShoppingAddress.create!(
 # Item.create!(
 
 #   id:5,
-#   genere_id: 1,
+
 #   name:'プリン',
 
 #   explanation:'口当たりがまろやかな人気商品です！',
@@ -121,19 +120,13 @@ ShoppingAddress.create!(
 # Item.create!(
 
 #   id:6,
-#   genere_id: 1,
+
 #   name:'シュークリーム',
 
 #   explanation:'外の生地はサクサクで、中のクリームは濃厚です！',
 
 #   not_tax_price:300,
 
-# )
-
-# CartItem.create!(
-#   member_id:2,
-#   item_id:1,
-#   quantity:3
 # )
 
 # CartItem.create!(

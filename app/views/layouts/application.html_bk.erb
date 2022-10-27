@@ -11,67 +11,67 @@
   </head>
 
   <body>
-<!--<div id= "wrapper">-->
-    <header class="header">
-      <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#D2B48C;">
-        <div class="container">
-          <a class="navbar-brand col-4" href="/">
-            <%= image_tag('logo.png', width: '60%', height: '60%' )  %>
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand" href="/">
+        <%= image_tag 'logo.png', class: 'logo' %>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav ml-auto">
                <!--顧客ログイン時-->
               <% if member_signed_in? %>
                 <li class="nav-item mx-3">
-                 ようこそ<strong> <%= link_to current_member.last_name %>さん！</strong>
+                 <%= link_to members_my_page_path(current_member), class: 'nav-link text-dark' do %>
+                 ようこそ<strong> <%= current_member.last_name %>さん！</strong>
+                 <% end %>
                 </li>
                 <li class="nav-item mx-3">
-                  <%= link_to members_my_page_path(current_member) do %><!--河内担当-->
+                  <%= link_to members_my_page_path(current_member), class: 'nav-link text-dark' do %>
                   <i class="fa-solid fa-user-gear">マイページ</i>
                   <% end %>
                 </li>
                 <li class="nav-item mx-3">
-                  <%#= link_to items_path  do %><!--OK-->
+                  <%= link_to items_path, class: 'nav-link text-dark'   do %>
                   <i class="fa-sharp fa-solid fa-cake-candles">商品一覧</i>
-                  <%# end %>
+                  <% end %>
                 </li>
                 <li class="nav-item mx-3">
-                  <%#= link_to  cart_items_path  do %><!--OK-->
+                  <%= link_to  cart_items_path, class: 'nav-link text-dark'   do %>
                   <i class="fa-solid fa-cart-shopping">カート</i>
-                  <%# end %>
+                  <% end %>
                 </li>
                 <li class="nav-item mx-3">
-                  <%= link_to destroy_member_session_path, method: :delete do %>
+                  <%= link_to destroy_member_session_path, class: 'nav-link text-dark',  method: :delete do %>
                   <i class="fa-solid fa-right-from-bracket">ログアウト</i>
                   <% end %>
                 </li>
                <!--管理者ログイン時-->
               <% elsif admin_signed_in? %>
                 <li class="nav-item mx-3">
-                  <%#= link_to items_path  do %><!--OK-->
+                  <%= link_to items_path, class: 'nav-link text-dark'   do %>
                   <i class="fa-sharp fa-solid fa-cake-candles">商品一覧</i>
-                  <%# end %>
+                  <% end %>
                 </li>
                 <li class="nav-item mx-3">
-                  <%#= link_to members_path  do %><!--河内担当-->
+                  <%= link_to admin_members_path , class: 'nav-link text-dark'  do %>
                   <i class="fa-solid fa-users">会員一覧</i>
-                  <%# end %>
+                  <% end %>
                 </li>
                 <li class="nav-item">
-                  <%#= link_to orders_path  do %><!--河内担当-->
+                  <%= link_to admin_path , class: 'nav-link text-dark'  do %>
                   <i class="fa-solid fa-memo-circle-check">注文履歴一覧</i>
-                  <%# end %>
+                  <% end %>
                 </li>
                 <li class="nav-item mx-3">
-                  <%#= link_to genres_path  do %><!--河内担当-->
+                  <%= link_to admin_genres_path , class: 'nav-link text-dark'  do %>
                   <i class="fa-solid fa-list-radio">ジャンル一覧</i>
-                  <%# end %>
+                  <% end %>
                 </li>
                 <li class="nav-item mx-3">
-                  <%= link_to destroy_admin_session_path, method: :delete do %>
+                  <%= link_to destroy_admin_session_path, class: 'nav-link text-dark' , method: :delete do %>
                   <i class="fa-solid fa-right-from-bracket">ログアウト</i>
                   <% end %>
                 </li>
@@ -83,9 +83,9 @@
                   <% end %>
                 </li>
                 <li class="nav-item mx-3">
-                  <%#= link_to items_path, class: 'nav-link text-dark' do %><!--OK-->
+                  <%= link_to items_path, class: 'nav-link text-dark' do %>
                    <i class="fa-sharp fa-solid fa-cake-candles">商品一覧</i>
-                  <%# end %>
+                  <% end %>
                 </li>
                 <li class="nav-item mx-3">
                   <%= link_to  new_member_registration_path, class: 'nav-link text-dark' do %>
@@ -99,14 +99,23 @@
                 </li>
               <% end %>
             </ul>
-          </div>
-        </div>
-      </nav>
+      </div>
+    </nav>
     </header>
     <main>
-    <%= yield %>
+      <%= flash[:notice] %>
+      <%= yield %>
     </main>
-    <footer class="p-3">フッター部分</footer>
+    <footer class="p-3">
+      <% unless admin_signed_in? %>
+        <%= link_to  new_admin_session_path, class: 'nav-link text-dark' do %>
+          <i class="fa-solid fa-key"></i>
+        <% end %>
+      <% end %>
+      </footer>
+<<<<<<< HEAD
     <!--</div>-->
+=======
+>>>>>>> origin/develop
   </body>
 </html>
