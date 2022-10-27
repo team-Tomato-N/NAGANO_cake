@@ -31,7 +31,7 @@ class Public::CartItemsController < ApplicationController
     cart_items = current_member.cart_items
     cart_items.destroy_all
 
-    redirect_to items_path
+    redirect_to cart_items_path
   end
 
   private

@@ -1,38 +1,35 @@
-<div class= "container ">
+<div class= "container">
   <div class="row py-4">
-  <h3>商品詳細</h3>
+  <h3 class="pr-4">商品詳細</h3>
 </div>
-<div class="row pb-4">
-  <div class="admin-item-info">
-  	<div class="col-xs-5">
-      <div class="item-info-image">
+<div class="row d-flex">
+
+      <div class="col-xs-4">
         <%= image_tag @item.get_item_image(400,300) %>
       </div>
-      <div class="col-xs-6">
-        <div class="info-content">
-          <span>商品名</span>
-          <span><%= @item.name %></span>
+      <div class="col-xs-7 offset-md-1">
+        <div class="row">
+          <span class="col-md-5">商品名</span>
+          <span class="col-md-7"><%= @item.name %></span>
         </div>
-        <div class="info-content">
-          <span>商品説明</span>
-          <sapn><%= @item.explanation %></sapn>
+        <div class="row">
+          <span class="col-md-5">商品説明</span>
+          <sapn class="col-md-7"><%= @item.explanation %></sapn>
         </div>
-        <div class="info-content">
-          <p>ジャンル</p>
-          <sapn><%= @item.genre.name %></span>
+        <div class="row">
+          <sapn class="col-md-5">ジャンル</sapn>
+          <sapn class="col-md-7"><%= @item.genre.name %></span>
         </div>
-        <div class="info-content">
-          <sapn>税込み価格（税抜機価格)</sapn>
-          <span><%= @item.not_tax_price %>(<%= (@item.not_tax_price*1.1).floor %>)円</span>
+        <div class="row">
+          <sapn class="col-md-5">税込み価格（税抜き価格)</sapn>
+          <span class="col-md-7"><%= @item.not_tax_price %>(<%= @item.tax_price %>)円</span>
         </div>
-        <div>
-          <sapn>販売ステータス</sapn>
-          <span><%= @item.is_active %></span>
+        <div class="row">
+          <sapn class="col-md-5">販売ステータス</sapn>
+          <span class="text-success col-md-7"><%= @item.is_active %></span>
         </div>
         <div class="text-center">
-          <%= link_to "編集",  edit_admin_item_path(@item), class: "btn btn-success" %>
+          <p autocomplete="off"><%= link_to "編集",  edit_admin_item_path(@item), class: "btn btn-success" %></p>
         </div>
-      </div>
-    </div>
-</div>
+  </div>
 </div>
