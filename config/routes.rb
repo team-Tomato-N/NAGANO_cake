@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get 'members/confirm'=> 'public/members#confirm'
   patch 'members/withdraw'=> 'public/members#withdraw'
   get 'members' => 'public/members#dummy'
+  post "/orders/confirm" => "public/orders#confirm"
 
   scope module: :public do
     resources :shopping_addresses
@@ -36,7 +37,7 @@ Rails.application.routes.draw do
     resources :cart_items, only:[:index, :create,:update, :destroy]
     delete "/cart_item/destroy_all" => "cart_items#destroy_all"
     resources :orders, only: [:new, :create, :show, :index]
-    post "/orders/confirm" => "orders#confirm"
+
   end
 
   namespace :admin do
