@@ -3,7 +3,7 @@
 <% genres.each do |genre| %>
   <ul>
     <li>
-      <%= link_to items_path(genre_id: genre.id ) do %>
+      <%= link_to items_path(genre_id: genre.id ),class: "top-link" do %>
         <%= genre.name %>
       <% end %>
     </li>
