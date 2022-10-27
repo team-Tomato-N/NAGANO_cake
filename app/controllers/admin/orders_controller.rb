@@ -2,13 +2,14 @@ class Admin::OrdersController < ApplicationController
    before_action :authenticate_admin!
 
   # def index
-  #   @orders = Order.all
+  #   @member = Member.find_by(params[:id])
+  #   @orders = @member.orders
   # end
 
   def show
     @order = Order.find(params[:id])
     @order_details = @order.order_details
-    @member = Member.find_by(params[:id])
+    @member = @order.member
   end
 
   def update
