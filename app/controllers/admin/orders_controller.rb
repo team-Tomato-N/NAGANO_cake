@@ -1,11 +1,6 @@
 class Admin::OrdersController < ApplicationController
    before_action :authenticate_admin!
 
-  # def index
-  #   @member = Member.find_by(params[:id])
-  #   @orders = @member.orders
-  # end
-
   def show
     @order = Order.find(params[:id])
     @order_details = @order.order_details
