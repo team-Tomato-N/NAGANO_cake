@@ -31,6 +31,8 @@ class Public::MembersController < ApplicationController
     redirect_to root_path
   end
 
+  #Deviseを使った新規登録画面で、
+  #エラーメッセージが表示されている時にリロードをするとエラーが出るため、それを防ぐため記述している
   def dummy
     redirect_to new_member_registration_path
   end

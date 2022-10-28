@@ -17,17 +17,20 @@ class Public::OrdersController < ApplicationController
     @total_price = current_member.cart_items.cart_items_total_price(@cart_items)
     @order.postage = 800
 
+    #[:address_option]=="0"のデータ(memberの住所)を呼び出す
     if params[:order][:address_option] == "0"
       @order.postal_code = current_member.postal_code
       @order.address = current_member.address
       @order.name = current_member.last_name + " " + current_member.first_name
       render 'confirm'
+    #[:address_option]=="1"(memberの配送先)を呼び出す
     elsif params[:order][:address_option] == "1"
       @shopping_address = ShoppingAddress.find_by(params[:order][:shopping_address_id])
       @order.postal_code = @shopping_address.postal_code
       @order.address = @shopping_address.address
       @order.name = @shopping_address.name
       render 'confirm'
+    #新規住所入力 [:address_option]=="2"としてデータをhtmlから受ける
     elsif params[:order][:address_option] == "2"
       @shopping_address = current_member.shopping_addresses.new
       @shopping_address.address = params[:order][:address]
