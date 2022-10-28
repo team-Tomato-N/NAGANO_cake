@@ -1,24 +1,20 @@
-# README
+# NAGANO CAKE
+# ロゴ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 概要
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# 開発環境
+Cloud9
+## バックエンド
+* ruby 3.1.2
+* Rails 6.1.7
+* SQLite3
+## フロントエンド
+* HTML
+* SCSS
+## その他
+* bootstrap
+* Font Awesome
+* devise
+* enum-help
+* ActiveStorage
