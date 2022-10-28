@@ -1,0 +1,62 @@
+<div id="top" class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="top-genres mt-4">
+      <%= render 'admin/genres/genre_sidebar', genres: @genres%>
+      </div>
+    </div>
+    <div class="col-md-9 ">
+      <div class="mb-4">
+          <div class="top-box mt-4 ">
+            <div class="card" style="background-size: cover;" >
+              <img class="card-img " src="/assets/kakao2.jpg" alt="">
+              <div class="card-img-overlay">
+                <h4 class="text-black">ようこそ、ながのCAKEへ！</h4>
+                <p class="text-black">
+                このサイトは、チョコレート専門ケーキ店のECサイトになります。<br>
+                <br>
+                カカオ豆の選定から買い付け、選別からチョコレートバーを作る工程のすべてを、<br>
+                自分たちのファクトリーで行っています。<br>
+                <br>
+                会員でない方も商品の閲覧はできますが、<br>
+                購入には会員登録が必要になります。
+                </p>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="row pb-4">
+    <div class="col-md-3"></div>
+    <div class="col-md-9" >
+        <div class="items">
+            <h4>New Items</h4>
+        </div>
+
+        <div class="row pickup-item ">
+                <% @items.each do |item| %>
+                  <div class="card-group col-3 px-4 mb-3" >
+                    <% if item.is_active == "販売中" %>
+                      <div class="card text-center pt-3" style="background-color:#d9c0a0;">
+                        <%= link_to item_path(item) do %>
+                          <%= image_tag item.get_item_image(100, 100) %><br>
+                        <% end %>
+                        <p><%= item.name %></p>
+                        <p><%= (item.not_tax_price*1.1).floor.to_s(:delimited)%>(税込)</p>
+                      </div>
+                    <% else %>
+                      <div class="card text-center pt-3" style="background-color:#d9c0a0;">
+                        <%= link_to root_path do %>
+                        <%= image_tag item.get_item_image(100, 100) %><br>
+                        <% end %>
+                        <p><%= item.name %></p>
+                        <p>販売停止中</p>
+                      </div>
+                    <% end %>
+
+                  </div>
+                <% end %>
+          <div class="text-right col-md-12"><%= link_to "Check ALL>>", items_path ,class: "top-link"%></div>
+        </div>
+  </div>

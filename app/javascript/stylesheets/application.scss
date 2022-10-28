@@ -1,0 +1,61 @@
+@import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+.card-img-overlay{
+  padding: 0;
+  top: calc(25% - 0.5rem);
+  text-align: center;
+  font-weight: bold;
+  text-shadow:1px 0 5px white;
+}
+
+.card-img{
+  opacity: 0.6
+}
+
+// #top img{
+//   opacity: 0.5
+// }
+
+// html, body{
+//   height: 100%;
+// }
+.logo { width: 120px; height: 78.3px; }
+
+#wrapper{
+  width: 100%;
+  position: relative;
+  min-height: 100vh;
+}
+
+// .link{
+//   text-decoration: none;
+//   color: Black ;
+// }
+
+header{
+  background-color: #d9c0a0;
+}
+
+
+main{
+  min-height: calc(100vh - 104.28px - 60px);
+  background-color: #FAEBD7;
+  // padding-bottom: 100px;
+}
+
+body{
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+.top-link{
+  color:Black;
+}
+
+footer{
+  background-color: #d9c0a0;
+  height: 60px;
+  width: 100%;
+  // position: absolute;
+  // bottom: 0;
+}
